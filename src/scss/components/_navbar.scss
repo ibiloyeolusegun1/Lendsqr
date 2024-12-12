@@ -1,0 +1,126 @@
+.sidebar {
+    position: fixed;
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.13);
+    padding: 30px 0;
+    font-family: var(--font-family);
+    font-size: 15px;
+    transition: transform 0.3s ease;
+    transform: translateX(0); // Open by default
+  
+    &.closed {
+      transform: translateX(-100%);
+    }
+  
+    .sidebar-org {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--secondary-color);
+      margin-bottom: 2rem;
+      padding: 0 20px;
+    }
+  
+    .sidebar-dash {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      padding: 0 20px;
+    }
+  
+    .sidebar-customer {
+      margin-bottom: 1rem;
+  
+      p {
+        font-size: 12px;
+        margin-bottom: 0.888rem;
+        margin-top: 2rem;
+        padding: 0 20px;
+      }
+  
+      .sidebar-ul {
+        color: var(--text-color);
+  
+        li {
+          margin-bottom: 0.888rem;
+          .n-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 0 20px;
+
+            .box{
+                position: absolute;
+                left: 0;
+                display: block;
+                height: 30px;
+                width: 6px;
+                background-color: var(--primary-color);
+            }
+
+            &.active-link .box {
+                display: block; 
+              }
+          
+            &.active-link {
+              color: var(--primary-color);
+              background-color: var(--primary-color-light);
+              padding: 8px 20px;
+            }
+          }
+        }
+  
+        span {
+          color: var(--text-color);
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  .toggle-btn {
+    position: fixed;
+    top: 7rem;
+    left: 14.5rem;
+    z-index: 1000;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .toggle-btn1 {
+    position: absolute;
+    top: 6.5rem;
+    left: .444rem;
+    z-index: 1000;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%); // Closed by default on smaller screens
+  
+      &.open {
+        transform: translateX(0);
+      }
+    }
+  
+    .toggle-btn {
+      display: block;
+    }
+  }
+  

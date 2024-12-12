@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from '../components/userDashboard/navbar/Header'
+import Sidebar from '../components/userDashboard/navbar/Sidebar'
 
 function Dashboard() {
   return (
     <div>
-      Dashboard Page
+      <Header />
+      <Sidebar />
     </div>
   )
 }

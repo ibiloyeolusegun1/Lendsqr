@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    list-style: none;
 }
 
 :root{
     --primary-color: #39CDCC;
+    --primary-color-light: #e1fdfd;
     --secondary-color: #213F7D;
     --title-color: #021523;
     --text-color: #545F7D;
