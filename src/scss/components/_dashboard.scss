@@ -1,0 +1,172 @@
+// Base styling
+$grid-gap: 20px;
+$grid-columns: 12;
+
+.user-dashboard{
+    width: 100%;
+    margin-top: 5rem;
+    .user-title{
+        color: var(--secondary-color);
+        margin-bottom: 3rem;
+    }
+    .user-stat{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat($grid-columns, 1fr);
+        gap: $grid-gap;
+        gap: 2rem;
+        .user-box{
+            grid-column: span 3;
+            background-color: white;
+            width: 100%;
+            padding: 20px 40px;
+            box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.068);
+        }
+        p{
+            margin: 15px 0;
+            font-size: 15px;
+            color: var(--text-color);
+        }
+        h4{
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+    }
+
+    .table-container{
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.068);
+        padding: 20px;
+        margin-top: 3rem;
+        table{
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            th{
+                padding: 16px 8px;
+                text-align: left;
+                .th-span{
+                    display: flex;
+                    align-items: center;
+                    gap: .555rem;
+                }
+                span{
+                    font-size: 14px;
+                    color: var(--text-color);
+                }
+                .filter{
+                    cursor: pointer;
+                }
+            }
+            td {
+                border-bottom: 1px solid #ddd;
+                padding: 16px 8px;
+                text-align: left;
+                font-size: 14px;
+                color: var(--text-color);
+            }
+            td.td-status span {
+                padding: 5px 15px;
+                border-radius: 50px;
+              
+                &.active {
+                  background-color: #f3fcf6;
+                  color: #39CD62;
+                }
+              
+                &.inactive {
+                  background-color: #f5f5f7;
+                  color: #545F7D;
+                }
+              
+                &.pending {
+                  background-color: #fdf7e5;
+                  color: #E9B200;
+                }
+              
+                &.blacklist {
+                  background-color: #fce6eb;
+                  color: #E4033B;
+                }
+              }
+            .td-status{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .td-ellipse{
+                    cursor: pointer;
+                }
+                .dropdown-links{
+                    position: absolute;
+                    background-color: white;
+                    z-index: 20;
+                    top: 3rem;
+                    right: 6px;
+                    box-shadow: 0px 4px 9px rgba(124, 116, 116, 0.068);
+                    padding: 15px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    width: max-content;
+                    .link{
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        color: var(--text-color);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .next-n-prev-btn{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        gap: .888rem;
+        .btn{
+            padding: 2px;
+            outline: none;
+            border: none;
+            background-color: #bac1d49c;
+            border-radius: 4px;
+        }
+        .per-page-select{
+            padding: 6px 8px;
+            outline: none;
+            border: none;
+            background-color: #bac1d49c;
+            border-radius: 4px;
+        }
+        .showing-num{
+            font-size: 14px;
+            color: var(--text-color);
+        }
+    }
+}
+
+
+
+    button{
+        color: var(--text-color);
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+    button.active {
+        border: none;
+        outline: none;
+        color: var(--title-color);
+        font-weight: bold;
+    }
+
+    .dots {
+        padding: 0 8px;
+        color: #999;
+        cursor: default;
+      }
+
+
