@@ -1,0 +1,11 @@
+main{
+    width: 100%;
+    .dashboard{
+        width: 85%;
+        margin-left: 280px;
+        height: max-content;
+        padding: 70px 60px;
+        font-family: var(--font-family);
+        background-color: #f3f3f3;
+    }
+}
