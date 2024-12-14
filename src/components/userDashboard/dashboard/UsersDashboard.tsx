@@ -23,6 +23,7 @@ interface User {
   status: "active" | "inactive" | "pending" | "blacklist";
   organization: string;
   id: string;
+  uid: string
 }
 
 function UsersDashboard() {
@@ -232,15 +233,15 @@ function UsersDashboard() {
             </tr>
           </thead>
           <tbody>
-            {currentUsers.map((item, index) => (
-              <tr key={item.id}>
-                <td>{item.organization}</td>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.phone}</td>
-                <td>{item.date}</td>
+            {currentUsers.map((user, index) => (
+              <tr key={user.id}>
+                <td>{user.organization}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td>{user.date}</td>
                 <td className="td-status">
-                  <span className={item.status}>{item.status}</span>
+                  <span className={user.status} key={index}>{user.status}</span>
                   <div
                     onClick={() => toggleDropdown(index)}
                     className="td-ellipse"
@@ -249,7 +250,7 @@ function UsersDashboard() {
                   </div>
                   {isOpenDropdown === index && (
                     <div className="dropdown-links">
-                      <Link to="/" className="link">
+                      <Link to={`/details/${user.id}`} className="link">
                         <img
                           src={viewIMG}
                           alt="view detail"

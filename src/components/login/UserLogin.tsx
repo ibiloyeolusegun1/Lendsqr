@@ -56,7 +56,7 @@ function UserLogin() {
               <Link to="/" className="forgot-pass">
                 FORGOT PASSWORD?
               </Link>
-              <button type="submit">LOG IN</button>
+              <button type="submit"><Link to="/dashboard" className="login-link">LOG IN</Link></button>
             </form>
           </div>
         </div>

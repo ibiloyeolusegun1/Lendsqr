@@ -1,9 +1,7 @@
 
 import UsersDashboard from '../components/userDashboard/dashboard/UsersDashboard'
-import Header from '../components/userDashboard/navbar/Header'
-import Sidebar from '../components/userDashboard/navbar/Sidebar'
-
-import '../scss/pages/_dashboard.scss'
+import Header from "../components/userDashboard/navbar/Header"
+import Sidebar from "../components/userDashboard/navbar/Sidebar"
 
 function Dashboard() {
   return (

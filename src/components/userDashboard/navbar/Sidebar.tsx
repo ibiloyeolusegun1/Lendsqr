@@ -28,30 +28,38 @@ import clipboard from "../../../assets/clipboard-list.png";
 import home from "../../../assets/home.png";
 
 export const linkCustomer: Link[] = [
-  { href: "/dashboard", label: "Users", image: user },
-  { href: "/filter", label: "Guarantors", image: users },
-  { href: "/details", label: "Loans", image: sack },
-  { href: "/details", label: "Decision Models", image: handshake},
-  { href: "/details", label: "Savings", image: piggy},
-  { href: "/details", label: "Loan Requests", image: handloan},
-  { href: "/details", label: "Whitelist", image: usercheck},
-  { href: "/details", label: "Karma", image: userkarma},
+  { 
+    href: "/dashboard", 
+    label: "Users", 
+    image: user,
+    children: [
+      { href: "/filter", label: "Filter" },
+      { href: "/details", label: "Details" },
+    ],
+  },
+  { href: "/", label: "Guarantors", image: users },
+  { href: "/", label: "Loans", image: sack },
+  { href: "/", label: "Decision Models", image: handshake },
+  { href: "/", label: "Savings", image: piggy },
+  { href: "/", label: "Loan Requests", image: handloan },
+  { href: "/", label: "Whitelist", image: usercheck },
+  { href: "/", label: "Karma", image: userkarma },
 ];
 export const linkBusiness: Link[] = [
-  { href: "/details", label: "Organization", image: briefcase },
-  { href: "/details", label: "Loans Products", image: handloan},
-  { href: "/details", label: "Savings Products", image: bank },
-  { href: "/details", label: "Fees and Charges", image: coinsolid},
-  { href: "/details", label: "Transaction", image: iconT},
-  { href: "/details", label: "Services", image: galaxy},
-  { href: "/details", label: "Service Account", image: usercog},
-  { href: "/details", label: "Settlements", image: scroll },
-  { href: "/details", label: "Reports", image: chartbar},
+  { href: "/", label: "Organization", image: briefcase },
+  { href: "/", label: "Loans Products", image: handloan},
+  { href: "/", label: "Savings Products", image: bank },
+  { href: "/", label: "Fees and Charges", image: coinsolid},
+  { href: "/", label: "Transaction", image: iconT},
+  { href: "/", label: "Services", image: galaxy},
+  { href: "/", label: "Service Account", image: usercog},
+  { href: "/", label: "Settlements", image: scroll },
+  { href: "/", label: "Reports", image: chartbar},
 ];
 export const linkSetting: Link[] = [
-  { href: "/details", label: "Preference", image: sliders},
-  { href: "/details", label: "Fees and Pricing", image: badgePercent},
-  { href: "/details", label: "Audit Log", image: clipboard},
+  { href: "/", label: "Preference", image: sliders},
+  { href: "/", label: "Fees and Pricing", image: badgePercent},
+  { href: "/", label: "Audit Log", image: clipboard},
 ];
 
 function Sidebar() {

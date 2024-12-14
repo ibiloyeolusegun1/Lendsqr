@@ -1,0 +1,172 @@
+
+
+.user-details{
+    width: 100%;
+    margin-top: 5rem;
+    .link{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 15px;
+        color: var(--text-color);
+    }
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        h1{
+            color: var(--secondary-color);
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .btn{
+                padding: 10px 16px;
+                border-radius: 7px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .blacklist{
+                color: #E4033B;
+                border: 1px solid #E4033B;
+            }
+            .activate{
+                color: #39CDCC;
+                border: 1px solid #39CDCC;
+            }
+        }
+        
+    }
+    .details{
+        background-color: white;
+        padding: 40px 40px 0px 40px;
+        border-radius: 6px;
+        border: 1px solid #eaecec;
+        .detail-by-id{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background-color: white;
+            width: 100%;
+            margin-bottom: 4rem;
+            .image-box{
+                height: 100px;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                border-right: 1px solid #bebfc0;
+                padding-right: 30px;
+                .image{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    p{
+                        font-size: 24px;
+                        color: var(--secondary-color);
+                    }
+                    span{
+                        color: var(--text-color);
+                        font-size: 14px;
+                    }
+                }
+            }
+            .rating{
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+                border-right: 1px solid #bebfc0;
+                padding-right: 30px;
+                p{
+                    color: var(--text-color);
+                    margin-top: .666rem;
+                }
+            }
+            .bank-detail{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                p{
+                    font-size: 24px;
+                    color: var(--secondary-color);
+                    font-weight: 500;
+                }
+                span{
+                    color: #3d5c9b;
+                    font-size: 13px;
+                }
+            }
+        }
+        .details-link{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .link{
+                color: var(--text-color);
+                padding: 10px 20px;
+                font-size: 17px;
+            }
+        }
+    }
+
+    .info{
+        background-color: white;
+        padding: 30px;
+        border-radius: 6px;
+        border: 1px solid #eaecec;
+        margin-top: 2rem;
+        .info-details{
+            display: flex;
+            flex-direction: column;
+            h1{
+                color: var(--secondary-color);
+                margin-bottom: 1.6rem;
+            }
+            .info-flex{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 2rem;
+                border-bottom: 1px solid #d7dada;
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
+                span{
+                    color: var(--text-color);
+                    font-size: 14px;
+                }
+                h3{
+                    color: #6a748f;
+                    font-size: 16px;
+                    margin-top: 7px;
+                }
+            }
+            .info-flex-g{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 2rem;
+                margin-bottom: 2rem;
+                span{
+                    color: var(--text-color);
+                    font-size: 14px;
+                }
+                h3{
+                    color: #6a748f;
+                    font-size: 16px;
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+}

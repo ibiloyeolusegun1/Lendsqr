@@ -93,7 +93,10 @@
               background-color: var(--primary-color);
               padding: 1rem;
               border-radius: 8px;
-              color: white;
+              
+              .login-link{
+                color: white;
+              }
             }
           }
     }

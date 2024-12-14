@@ -1,6 +1,7 @@
 export type Link = {
     href: string;
-    label: string;
+    label?: string;
     image?: string;
+    children?: Link[];
   }
   
