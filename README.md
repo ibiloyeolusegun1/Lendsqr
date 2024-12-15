@@ -41,7 +41,7 @@ Prerequisites
 1. Clone the repository:
 
 ```
-git clone https://github.com/ibiloyeolusegun1/Lendsqr.git
+git clone https://github.com/ibiloyeolusegun1/Lendsqr-fe-test.git
 ```
 
 
