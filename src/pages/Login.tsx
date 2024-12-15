@@ -1,11 +1,15 @@
 
 import UserLogin from '../components/login/UserLogin'
 
+import '../scss/pages/_login.scss'
+
 function Login() {
   return (
-    <div>
+    <main>
+      <section className='dashboard'>
       <UserLogin />
-    </div>
+      </section>
+    </main>
   )
 }
 
