@@ -17,7 +17,7 @@ function UserLogin() {
 
   return (
     <div>
-      <div className="filter-container">
+      <div className="login-container">
         <div className="image">
           <img src={logoIMG} alt="logo" className="logo" />
           <div className="image-container">
