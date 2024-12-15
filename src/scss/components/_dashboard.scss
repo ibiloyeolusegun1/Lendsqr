@@ -1,6 +1,6 @@
 // Base styling
-$grid-gap: 20px;
-$grid-columns: 12;
+// $grid-gap: 20px;
+// $grid-columns: 12;
 
 .user-dashboard{
     width: 100%;
@@ -12,8 +12,8 @@ $grid-columns: 12;
     .user-stat{
         width: 100%;
         display: grid;
-        grid-template-columns: repeat($grid-columns, 1fr);
-        gap: $grid-gap;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
         gap: 2rem;
         .user-box{
             grid-column: span 3;
@@ -34,6 +34,7 @@ $grid-columns: 12;
     }
 
     .table-container{
+        position: relative;
         background-color: white;
         box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.068);
         padding: 20px;
@@ -49,10 +50,58 @@ $grid-columns: 12;
                     display: flex;
                     align-items: center;
                     gap: .555rem;
+                    form{
+                        width: 380px;
+                        background-color: white;
+                        box-shadow: 0px 4px 8px rgba(110, 110, 110, 0.068);
+                        border: 1px solid #e7e7e7;
+                        border-radius: 5px;
+                        padding: 30px 15px;
+                        .label-f{
+                            color: #3d3d3d;
+                            font-weight: lighter;
+                            margin-bottom: 6px;
+                            display: block;
+                        }
+                        .input-box{
+                            width: 100%;
+                            outline: none;
+                            border: 1px solid #cfcece;
+                            margin-bottom: 1.3rem;
+                            padding: 13px 15px;
+                            border-radius: 8px;
+                        }
+                        .filter-btn{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-top: 1rem;
+                            button{
+                                width: 150px;
+                                padding: 13px 15px;
+                                border-radius: 8px;
+                                cursor: pointer;
+                            }
+                            .submit{
+                                background-color: var(--primary-color);
+                                color: white;
+                            }
+                            .reset{
+                                color: var(--title-color);
+                                border: 1px solid var(--title-color);
+                            }
+                        }
+                       
+                    }
                 }
                 span{
                     font-size: 14px;
                     color: var(--text-color);
+                }
+                button{
+                    outline: none;
+                    border: none;
+                    background-color: transparent;
                 }
                 .filter{
                     cursor: pointer;
@@ -170,3 +219,16 @@ $grid-columns: 12;
       }
 
 
+
+// Small screen
+@media (max-width: 768px) {
+    .user-stat{
+    
+        grid-template-columns: repeat(6, 1fr) !important;
+       
+        .user-box{
+            grid-column: span 2;
+           
+        }
+    }
+}

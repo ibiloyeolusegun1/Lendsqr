@@ -84,7 +84,7 @@ function UserDetails() {
           </div>
           
           <div className="bank-detail">
-            <p>200,000.00</p>
+            <p>&#8358;200,000.00</p>
             <span>9906782392/Providus Bank</span>
           </div>
         </div>

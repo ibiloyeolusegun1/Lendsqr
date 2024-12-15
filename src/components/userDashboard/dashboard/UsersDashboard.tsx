@@ -14,6 +14,8 @@ import viewIMG from "../../../assets/ellipse-eye.png";
 import blacklistIMG from "../../../assets/ellipse-userX.png";
 import activateIMG from "../../../assets/ellipse-user-mark.png";
 
+
+
 interface User {
   date: string;
   name: string;
@@ -31,7 +33,21 @@ function UsersDashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [isOpenDropdown, setIsOpenDropdown] = useState<number | null>(null);
+  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
 
+  const [organizationOptions, setOrganizationOptions] = useState<string[]>([]);
+  const [statusOptions, setStatusOptions] = useState<string[]>([]);
+
+  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [date, setDate] = useState<string>("");
+  const [organiztion, setOrganiztion] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
+  
+
+
+// Fetch User Data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,6 +60,37 @@ function UsersDashboard() {
       }
     };
     fetchData();
+  }, []);
+
+  // Fetch organization options
+  useEffect(() => {
+    const fetchOrganizations = async () => {
+      try {
+        const res = await axios.get<User[]>("https://6759cad4099e3090dbe2f1f3.mockapi.io/users");
+        console.log(res.data);
+        const organizations = res.data.map((user) => user.organization); 
+        setOrganizationOptions(Array.from(new Set(organizations))); 
+      } catch (error) {
+        console.error("Error fetching organization options", error);
+      }
+    };
+    fetchOrganizations();
+  }, []);
+  
+
+  // Fetch status options
+  useEffect(() => {
+    const fetchStatuses = async () => {
+      try {
+        const res = await axios.get<User[]>("https://6759cad4099e3090dbe2f1f3.mockapi.io/users"); 
+        console.log(res.data);
+        const organizations = res.data.map((user) => user.status); 
+        setStatusOptions(Array.from(new Set(organizations))); 
+      } catch (error) {
+        console.error("Error fetching status options", error);
+      }
+    };
+    fetchStatuses();
   }, []);
 
   const indexOfLastPage = currentPage * itemsPerPage;
@@ -64,6 +111,15 @@ function UsersDashboard() {
   const toggleDropdown = (id: number) => {
     setIsOpenDropdown(isOpenDropdown === id ? null : id);
   };
+ 
+  const toggleFilter = () => {
+    setIsOpenFilter(!isOpenFilter);
+  };
+
+  const handleFilter = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+  
 
   
 
@@ -197,37 +253,112 @@ function UsersDashboard() {
               <th>
                 <span className="th-span">
                   <span>ORGANIZATION</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
+                  {isOpenFilter && (
+                    <form onSubmit={handleFilter} style={{ zIndex: "20", position: "absolute", top: "4.4rem", left: "1rem" }}>
+                    <div>
+                    <label className="label-f">Organization</label>
+                      <select value={organiztion} onChange={(e) => setOrganiztion(e.target.value)} className="input-box">
+                        <option value="" className="select">Select</option>
+                        {organizationOptions.map((org, index) => (
+                          <option key={index} value={org}>
+                            {org}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="label-f">Username</label>
+                      <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        className="input-box"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="label-f">Email</label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Email"
+                        className="input-box"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="label-f">Date</label>
+                      <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        placeholder="Date"
+                        className="input-box"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="label-f">Phone Number</label>
+                      <input
+                        type="text"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        placeholder="Phone Number"
+                        className="input-box"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="label-f">Status</label>
+                      <select value={status} onChange={(e) => setStatus(e.target.value)} className="input-box">
+                        <option value="">Select</option>
+                        {statusOptions.map((stat, index) => (
+                          <option key={index} value={stat}>
+                            {stat}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+      
+                    <div className="filter-btn">
+                      <button type="reset" className="reset">Reset</button>
+                      <button type="submit" className="submit">Filter</button>
+                    </div>
+                  </form>
+                  )}
                 </span>
               </th>
               <th>
                 <span className="th-span">
                   <span>USERNAME</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
                 </span>
               </th>
               <th>
                 <span className="th-span">
                   <span>EMAIL</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
                 </span>
               </th>
               <th>
                 <span className="th-span">
                   <span>PHONE NUMBER</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
                 </span>
               </th>
               <th>
                 <span className="th-span">
                   <span>DATE JOIN</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
                 </span>
               </th>
               <th>
                 <span className="th-span">
                   <span>STATUS</span>{" "}
-                  <IoFilterSharp size={22} className="filter" />
+                  <button onClick={toggleFilter}><IoFilterSharp size={22} className="filter" /></button>
                 </span>
               </th>
             </tr>

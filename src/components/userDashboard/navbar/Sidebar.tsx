@@ -28,9 +28,9 @@ import clipboard from "../../../assets/clipboard-list.png";
 import home from "../../../assets/home.png";
 
 export const linkCustomer: Link[] = [
-  { 
-    href: "/dashboard", 
-    label: "Users", 
+  {
+    href: "/dashboard",
+    label: "Users",
     image: user,
     children: [
       { href: "/filter", label: "Filter" },
@@ -47,19 +47,19 @@ export const linkCustomer: Link[] = [
 ];
 export const linkBusiness: Link[] = [
   { href: "/", label: "Organization", image: briefcase },
-  { href: "/", label: "Loans Products", image: handloan},
+  { href: "/", label: "Loans Products", image: handloan },
   { href: "/", label: "Savings Products", image: bank },
-  { href: "/", label: "Fees and Charges", image: coinsolid},
-  { href: "/", label: "Transaction", image: iconT},
-  { href: "/", label: "Services", image: galaxy},
-  { href: "/", label: "Service Account", image: usercog},
+  { href: "/", label: "Fees and Charges", image: coinsolid },
+  { href: "/", label: "Transaction", image: iconT },
+  { href: "/", label: "Services", image: galaxy },
+  { href: "/", label: "Service Account", image: usercog },
   { href: "/", label: "Settlements", image: scroll },
-  { href: "/", label: "Reports", image: chartbar},
+  { href: "/", label: "Reports", image: chartbar },
 ];
 export const linkSetting: Link[] = [
-  { href: "/", label: "Preference", image: sliders},
-  { href: "/", label: "Fees and Pricing", image: badgePercent},
-  { href: "/", label: "Audit Log", image: clipboard},
+  { href: "/", label: "Preference", image: sliders },
+  { href: "/", label: "Fees and Pricing", image: badgePercent },
+  { href: "/", label: "Audit Log", image: clipboard },
 ];
 
 function Sidebar() {
@@ -69,12 +69,16 @@ function Sidebar() {
 
   return (
     <>
-      {isSidebarOpen ? <button className="toggle-btn" onClick={toggleSidebar}>
-        <IoIosArrowBack />
-      </button> : <button className="toggle-btn1" onClick={toggleSidebar}>
-      <IoIosArrowForward />
-      </button> }
-      
+      {isSidebarOpen ? (
+        <button className="toggle-btn" onClick={toggleSidebar}>
+          <IoIosArrowBack />
+        </button>
+      ) : (
+        <button className="toggle-btn1" onClick={toggleSidebar}>
+          <IoIosArrowForward />
+        </button>
+      )}
+
       <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
         <div className="sidebar-org">
           <img src={briefcase} alt="briefcase" />
@@ -88,25 +92,25 @@ function Sidebar() {
         <div className="sidebar-customer">
           <p>CUSTOMERS</p>
           <ul className="sidebar-ul">
-  {linkCustomer.map((item, index) => (
-    <li key={index}>
-      <NavLink
-        to={item.href}
-        className={({ isActive }) =>
-          `n-link ${isActive ? "active-link" : ""}`
-        }
-      >
-        {({ isActive }) => (
-          <>
-            {isActive && <div className="box"></div>}
-            <img src={item.image} alt={item.label} />
-            <span>{item.label}</span>
-          </>
-        )}
-      </NavLink>
-    </li>
-  ))}
-</ul>
+            {linkCustomer.map((item, index) => (
+              <li key={index}>
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `n-link ${isActive ? "active-link" : ""}`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {isActive && <div className="box"></div>}
+                      <img src={item.image} alt={item.label} />
+                      <span>{item.label}</span>
+                    </>
+                  )}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="sidebar-customer">
           <p>BUSINESS</p>
@@ -114,7 +118,7 @@ function Sidebar() {
             {linkBusiness.map((item, index) => (
               <li key={index}>
                 <NavLink to={item.href} className="n-link">
-                <img src={item.image} alt="" />
+                  <img src={item.image} alt="" />
                   <span>{item.label}</span>
                 </NavLink>
               </li>
@@ -127,7 +131,7 @@ function Sidebar() {
             {linkSetting.map((item, index) => (
               <li key={index}>
                 <NavLink to={item.href} className="n-link">
-                <img src={item.image} alt="" />
+                  <img src={item.image} alt="" />
                   <span>{item.label}</span>
                 </NavLink>
               </li>
